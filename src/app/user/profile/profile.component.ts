@@ -9,6 +9,7 @@ import { PurchaseService } from 'src/app/services/purchase.service';
 })
 export class ProfileComponent implements OnInit {
   purchaseItemList: Array<PurchaseItem>=[];
+  pur:PurchaseItem = {"title": "asd","price" :16,"purchaseTime":new Date()};
   constructor(private purchaseService: PurchaseService) { }
 
   ngOnInit(): void {
@@ -16,7 +17,9 @@ export class ProfileComponent implements OnInit {
       next:(data)=>{
         this.purchaseItemList = data;
       }
-    })
+    });
+    //this.purchaseItemList.push(this.pur);
+  
   }
 
 }

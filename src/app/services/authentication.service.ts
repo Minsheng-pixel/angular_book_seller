@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { APP_ID, Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 
-const API_URL = '${environment.BASE_URL}/api/authentication/'
-
+const API_URL = `${environment.BASE_URL}/api/authentication/`
 @Injectable({
   providedIn: 'root'//visible throughout the application
 })
@@ -38,6 +38,7 @@ export class AuthenticationService {
        })
      );
    }
+
    register(user:User):Observable<any>{
      return this.http.post(API_URL + 'sign-up',user);
      
