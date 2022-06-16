@@ -11,7 +11,8 @@ export abstract class RequestBaseService {
   protected currentUser:User= new User;
   
   protected constructor(protected authenticationService:AuthenticationService,protected http:HttpClient) {
-    this.authenticationService.currentUser.subscribe({next:(data) =>{
+    this.authenticationService.currentUser.subscribe({
+      next:(data) =>{
       this.currentUser =data;
     }
     }); 
